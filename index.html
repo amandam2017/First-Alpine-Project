@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-6">
                     <span>This is a <em>Counter Component</em>. The counter will increase once the up button is clicked and counter will decrease once down button is clicked.</span>
-                    <div x-data="{ count: 1}">
+                    <div x-data="{ count: 0}">
                         <p x-text="count"></p>
                         <button class="btn btn-secondary" @click="count++">Count Up</button>
                         <button class="btn btn-secondary" @click="count--">Count Down</button>
@@ -37,12 +37,17 @@
                     <span>This is a <em>AutoCounter Component</em>. This is an auto counter.</span>
                     <div x-data="{ countdown: 60}"
                         x-init="setInterval(function(){
-                            countdown--;
+                            countdown++;
                         }, 1000)">
                         <h1 x-text="countdown"></h1>
+                        <template x-if="countdown==0">
+                            <p>Stop counting</p>
+                        </template>
+                        <button class="btn btn-secondary" @click="countdown = 0">Stop Timer</button>
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <span>This is a <em>Show Component</em>.Show or hide an element based on a true or false variable.</span>
                     <div x-data="{ show: false}">
                         <button class="btn btn-secondary" @click="show=!show">Show</button>
                         <div x-show="show">Hello</div>
@@ -52,6 +57,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
+                    <span>This is a <em>Show Component with transition</em>. Show or hide an element based on a true or false variable</span>
                     <div x-data="{ show: false }">
                         <button class="btn btn-secondary" @click="show=!show">Show</button>
                         <div x-show.transition="show">Hello</div>
