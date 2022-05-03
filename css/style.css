@@ -1,5 +1,5 @@
 body {
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	background-color: lightgoldenrodyellow;
 }
 
@@ -7,7 +7,10 @@ body {
 	padding:20px 0;
 }
 
-h4{
+h3{
+	font-size: 25px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 600;
 	margin: 25px 0;
 	text-align: center;
 }
@@ -16,6 +19,16 @@ h4{
 	border: 1px solid;
 }
 
+.row{
+	margin: 35px 0;
+	/* border: 1px solid; */
+}
+
 .column-space{
 	margin: 20px 0;
+}
+
+span{
+	font-weight: 600;
+	text-align: center;
 }
