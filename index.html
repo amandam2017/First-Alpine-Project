@@ -35,30 +35,40 @@
             <div class="row">
                 <div class="col-md-6">
                     <span>This is a <em>AutoCounter Component</em>. This is an auto counter.</span>
-                    <div x-data="{ countdown: 60,
-                                    stop: 00,
-                                    resert: 00
-                    }"x-init="setInterval(function(){
-                        countdown--;
-                    }, 1000)">
-                    <!-- <div x-init="setInterval(function(){
-                        stop++;
-                    }, 1000)">
+                    <div x-data="{ countdown: 10}"
+                    x-init="setInterval(function(){
+                        if(countdown !==0){
+                            countdown--;
+                        }else{
+                            countdown = 0;
+                        }
+                    }, 1000)"
+                    >  
+                    <!-- <template x-if="countdown==0"
+                    x-init="setInterval(function(){
+                        countdown.stop();
+                    }, 1000)"
+                    >  
+                    </template> -->
 
-                    </div> -->
-                    <div x-init="setInterval(function(){
+                    <!-- <template x-if="countdown==60"
+                    x-init="setInterval(function(){
+                        countdown--;
+                    }, 1000)"
+                    >  
+                    </template> -->
+
+                    <!-- <div x-init="setInterval(function(){
                         resert++;
                     }, 1000)">
 
                     </div> 
                     <template x-if="countdown==0"
                     x-init="setInterval(function(){
-                        stop++;
+                        resert++;
                     }, 1000)"
                     >
-                        <!-- countdown.stop(),
-                        return     -->
-                    </template>
+                    </template> -->
                     <!-- <div x-init="setInterval(function(){
                         resert;
                     }, 1000)">
@@ -66,7 +76,7 @@
                     </div>     -->
                         <h1 x-text="countdown"></h1>
                         <button class="btn btn-secondary" @click="countdown = 60">Start Timer</button>
-                        <button class="btn btn-secondary" @click="countdown = 0">Stop Timer</button>
+                        <!-- <button class="btn btn-secondary" @click="countdown = 0">Stop Timer</button> -->
                         <button class="btn btn-secondary" @click="countdown = 0">Resert Timer</button>
                     </div>
                 </div>
@@ -87,7 +97,7 @@
                         <div x-show.transition="show">Hello</div>
                     </div>
                 </div>
-
+                    
                 <div class="col-md-6">
                     <span>This x-mode directive - Whenever you update the value of the variable or the text box's value, they will stay in sync</span>
                     <div x-data="{ title: 'AlpineJS is Awesome' }">
