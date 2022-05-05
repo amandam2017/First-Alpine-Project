@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Alpine JS</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/app.js"></script>
 </head>
+
 <body>
 
     <div class="container">
@@ -23,7 +27,8 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <span>This is a <em>Counter Component</em>. The counter will increase once the up button is clicked and counter will decrease once down button is clicked.</span>
+                    <span>This is a <em>Counter Component</em>. The counter will increase once the up button is clicked
+                        and counter will decrease once down button is clicked.</span>
                     <div x-data="{ count: 0}">
                         <p x-text="count"></p>
                         <button class="btn btn-secondary" @click="count++">Count Up</button>
@@ -35,33 +40,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <span>This is a <em>AutoCounter Component</em>. This is an auto counter.</span>
-                    <div x-data="{ countdown: 10, pause: null}"
-                    
-                    x-init="pause = setInterval(function(){
-                        countdown--;
-                    }, 1000)">
-
-                    <template x-if="countdown==0"
-                    x-init="setInterval(function(){
-                        countdown.stop();
-                    }, 1000)"
-                    >
-                    </template>
-
-                    <template x-if="countdown"
-                        x-init="clearInterval(paused)"
-                    >
-                    </template>
-
+                    <div x-data="counter">
                         <h1 x-text="countdown"></h1>
-                        <button class="btn btn-secondary" @click="countdown = 60">Start Timer</button>
-                        <button class="btn btn-secondary" @click="countdown = 0">Resert Timer</button>
-                        <button class="btn btn-secondary" @click="countdown = 0">Stop</button>
-
+                        <button class="btn btn-secondary" @click="stop()">Stop</button>
+                        <button class="btn btn-secondary" @click="startCounter()">Start Timer</button>
+                        <button class="btn btn-secondary" @click="reset()">Reset Timer</button>
                     </div>
+                
                 </div>
                 <div class="col-md-6">
-                    <span>This is a <em>Show Component</em>.Show or hide an element based on a true or false variable.</span>
+                    <span>This is a <em>Show Component</em>.Show or hide an element based on a true or false
+                        variable.</span>
                     <div x-data="{ show: false}">
                         <button class="btn btn-secondary" @click="show=!show">Show</button>
                         <div x-show="show">Hello</div>
@@ -71,7 +60,8 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <span>This is a <em>Show Component with transition</em>. Show or hide an element based on a true or false variable</span>
+                    <span>This is a <em>Show Component with transition</em>. Show or hide an element based on a true or
+                        false variable</span>
                     <div x-data="{ show: false }">
                         <button class="btn btn-secondary" @click="show=!show">Show</button>
                         <div x-show.transition="show">Hello</div>
@@ -79,7 +69,8 @@
                 </div>
 
                 <div class="col-md-6">
-                    <span>This x-mode directive - Whenever you update the value of the variable or the text box's value, they will stay in sync</span>
+                    <span>This x-mode directive - Whenever you update the value of the variable or the text box's value,
+                        they will stay in sync</span>
                     <div x-data="{ title: 'AlpineJS is Awesome' }">
                         <p x-text="title"></p>
                         <input type="text" x-model="title">
@@ -98,7 +89,8 @@
                     <span>AlpineJS x-ref</span>
                     <div x-data="{ code: '<p>Dynamic paragraph</p>'}">
                         <div x-ref="sentence">I am a sentence</div>
-                        <button class="btn btn-secondary" @click="$refs.sentence.innerText = 'I just changed'">Change Sentence</button>
+                        <button class="btn btn-secondary" @click="$refs.sentence.innerText = 'I just changed'">Change
+                            Sentence</button>
                     </div>
                 </div>
             </div>
@@ -130,7 +122,6 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 </body>
+
 </html>
